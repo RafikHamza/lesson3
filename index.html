@@ -28,6 +28,23 @@
         .incorrect {
             color: #ef4444; /* Red for incorrect */
         }
+
+        /* Fade-in animation for lesson content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        /* Quiz slide styling */
+        .quiz-slide {
+            display: none; /* Hide all slides by default */
+        }
+        .quiz-slide.active {
+            display: block; /* Show active slide */
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -49,6 +66,12 @@
 
         <div id="lesson1" class="lesson-content active p-6 bg-gray-50 rounded-lg shadow-inner">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Class16 Protecting Your Devices</h2>
+
+            <div class="flex justify-center mb-6">
+                <svg class="w-24 h-24 text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 2a3 3 0 00-3 3v2H4a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2h-3V5a3 3 0 00-3-3zm0 2a1 1 0 00-1 1v2h2V5a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
 
             <section class="mb-8">
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
@@ -106,41 +129,96 @@
             </section>
 
             <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
-                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 1: Protecting Your Devices</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-2">Quiz 1: Protecting Your Devices</h3>
+                <p class="text-lg font-medium text-gray-700 mb-4">Do you know?</p>
                 <form id="quiz1-form">
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">1. What is one reason to protect your devices?</p>
-                        <label class="block mb-1"><input type="radio" name="q1" value="a" class="mr-2"> a) To make them faster</label>
-                        <label class="block mb-1"><input type="radio" name="q1" value="b" class="mr-2"> b) To keep your information safe</label>
-                        <label class="block"><input type="radio" name="q1" value="c" class="mr-2"> c) To play more games</label>
-                        <p id="q1-feedback" class="quiz-feedback"></p>
-                    </div>
+                    <div id="quiz1-questions-container">
+                        <div class="quiz-slide active">
+                            <p class="font-medium text-gray-700 mb-2">1. What is one reason to protect your devices?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-1" value="a" class="mr-2"> a) To make them faster</label>
+                            <label class="block mb-1"><input type="radio" name="q1-1" value="b" class="mr-2"> b) To keep your information safe</label>
+                            <label class="block"><input type="radio" name="q1-1" value="c" class="mr-2"> c) To play more games</label>
+                            <p id="q1-1-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">2. Which of these is a strong password?</p>
-                        <label class="block mb-1"><input type="radio" name="q2" value="a" class="mr-2"> a) <code class="bg-gray-100 p-1 rounded">123456</code></label>
-                        <label class="block mb-1"><input type="radio" name="q2" value="b" class="mr-2"> b) <code class="bg-gray-100 p-1 rounded">password</code></label>
-                        <label class="block"><input type="radio" name="q2" value="c" class="mr-2"> c) <code class="bg-gray-100 p-1 rounded">L0ck_mY_D3v!c3</code></label>
-                        <p id="q2-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">2. Which of these is a strong password?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-2" value="a" class="mr-2"> a) <code class="bg-gray-100 p-1 rounded">123456</code></label>
+                            <label class="block mb-1"><input type="radio" name="q1-2" value="b" class="mr-2"> b) <code class="bg-gray-100 p-1 rounded">password</code></label>
+                            <label class="block"><input type="radio" name="q1-2" value="c" class="mr-2"> c) <code class="bg-gray-100 p-1 rounded">L0ck_mY_D3v!c3</code></label>
+                            <p id="q1-2-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">3. What does antivirus software do?</p>
-                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Makes your screen brighter</label>
-                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Finds and removes harmful software</label>
-                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Helps you type faster</label>
-                        <p id="q3-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">3. What does antivirus software do?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-3" value="a" class="mr-2"> a) Makes your screen brighter</label>
+                            <label class="block mb-1"><input type="radio" name="q1-3" value="b" class="mr-2"> b) Finds and removes harmful software</label>
+                            <label class="block"><input type="radio" name="q1-3" value="c" class="mr-2"> c) Helps you type faster</label>
+                            <p id="q1-3-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">4. Why are software updates important for security?</p>
-                        <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) They add new colors to your screen</label>
-                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) They fix security holes</label>
-                        <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) They make your device heavier</label>
-                        <p id="q4-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">4. Why are software updates important for security?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-4" value="a" class="mr-2"> a) They add new colors to your screen</label>
+                            <label class="block mb-1"><input type="radio" name="q1-4" value="b" class="mr-2"> b) They fix security holes</label>
+                            <label class="block"><input type="radio" name="q1-4" value="c" class="mr-2"> c) They make your device heavier</label>
+                            <p id="q1-4-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <button type="button" onclick="checkQuiz(1)" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Check Answers</button>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">5. What is "phishing"?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-5" value="a" class="mr-2"> a) A type of online game</label>
+                            <label class="block mb-1"><input type="radio" name="q1-5" value="b" class="mr-2"> b) When someone tries to trick you into giving personal information</label>
+                            <label class="block"><input type="radio" name="q1-5" value="c" class="mr-2"> c) A way to make your device faster</label>
+                            <p id="q1-5-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">6. Why should you be careful on public Wi-Fi?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-6" value="a" class="mr-2"> a) It's usually very slow</label>
+                            <label class="block mb-1"><input type="radio" name="q1-6" value="b" class="mr-2"> b) Your information might not be private</label>
+                            <label class="block"><input type="radio" name="q1-6" value="c" class="mr-2"> c) It uses too much battery</label>
+                            <p id="q1-6-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">7. What does a firewall protect against?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-7" value="a" class="mr-2"> a) Physical damage to your device</label>
+                            <label class="block mb-1"><input type="radio" name="q1-7" value="b" class="mr-2"> b) Unwanted connections from the internet</label>
+                            <label class="block"><input type="radio" name="q1-7" value="c" class="mr-2"> c) Running out of storage space</label>
+                            <p id="q1-7-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">8. How often should you update your software?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-8" value="a" class="mr-2"> a) Once a year</label>
+                            <label class="block mb-1"><input type="radio" name="q1-8" value="b" class="mr-2"> b) Only when your device feels slow</label>
+                            <label class="block"><input type="radio" name="q1-8" value="c" class="mr-2"> c) As soon as updates are available</label>
+                            <p id="q1-8-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">9. Which of these is NOT a good practice for password security?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-9" value="a" class="mr-2"> a) Using a mix of characters</label>
+                            <label class="block mb-1"><input type="radio" name="q1-9" value="b" class="mr-2"> b) Writing it down on a sticky note next to your computer</label>
+                            <label class="block"><input type="radio" name="q1-9" value="c" class="mr-2"> c) Making it long</label>
+                            <p id="q1-9-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">10. What is the main purpose of antivirus software?</p>
+                            <label class="block mb-1"><input type="radio" name="q1-10" value="a" class="mr-2"> a) To organize your files</label>
+                            <label class="block mb-1"><input type="radio" name="q1-10" value="b" class="mr-2"> b) To find and remove harmful software</label>
+                            <label class="block"><input type="radio" name="q1-10" value="c" class="mr-2"> c) To connect to the internet</label>
+                            <p id="q1-10-feedback" class="quiz-feedback"></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <button type="button" onclick="prevQuestion(1)" class="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition duration-300 ease-in-out shadow-md" id="prevBtn1" disabled>Previous</button>
+                        <span id="questionCounter1" class="text-gray-600 font-semibold">1 of 10</span>
+                        <button type="button" onclick="nextQuestion(1)" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md" id="nextBtn1">Next</button>
+                    </div>
+                    <button type="button" onclick="checkCurrentQuestion(1)" class="mt-4 bg-green-600 text-white px-5 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out shadow-md w-full">Check Answer</button>
                 </form>
             </div>
 
@@ -158,6 +236,9 @@
 
         <div id="lesson2" class="lesson-content p-6 bg-gray-50 rounded-lg shadow-inner">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Class17 Symmetric Encryption Algorithms</h2>
+
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <span class="text-5xl">📦</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🔑</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🔒</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🔑</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🔓</span> </div>
 
             <section class="mb-8">
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
@@ -223,41 +304,96 @@
             </section>
 
             <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
-                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 2: Symmetric Encryption Algorithms</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-2">Quiz 2: Symmetric Encryption Algorithms</h3>
+                <p class="text-lg font-medium text-gray-700 mb-4">Do you know?</p>
                 <form id="quiz2-form">
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">1. What is the main idea of symmetric encryption?</p>
-                        <label class="block mb-1"><input type="radio" name="q1" value="a" class="mr-2"> a) Using two different keys</label>
-                        <label class="block mb-1"><input type="radio" name="q1" value="b" class="mr-2"> b) Using one secret key for both locking and unlocking</label>
-                        <label class="block"><input type="radio" name="q1" value="c" class="mr-2"> c) Sending messages in plain text</label>
-                        <p id="q5-feedback" class="quiz-feedback"></p>
-                    </div>
+                    <div id="quiz2-questions-container">
+                        <div class="quiz-slide active">
+                            <p class="font-medium text-gray-700 mb-2">1. What is the main idea of symmetric encryption?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-1" value="a" class="mr-2"> a) Using two different keys</label>
+                            <label class="block mb-1"><input type="radio" name="q2-1" value="b" class="mr-2"> b) Using one secret key for both locking and unlocking</label>
+                            <label class="block"><input type="radio" name="q2-1" value="c" class="mr-2"> c) Sending messages in plain text</label>
+                            <p id="q2-1-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">2. If you encrypt "CAT" with a symmetric key and it becomes "FDU", how does your friend decrypt it?</p>
-                        <label class="block mb-1"><input type="radio" name="q2" value="a" class="mr-2"> a) With a different key</label>
-                        <label class="block mb-1"><input type="radio" name="q2" value="b" class="mr-2"> b) By guessing</label>
-                        <label class="block"><input type="radio" name="q2" value="c" class="mr-2"> c) With the <em>same</em> secret key</label>
-                        <p id="q6-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">2. If you encrypt "CAT" with a symmetric key and it becomes "FDU", how does your friend decrypt it?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-2" value="a" class="mr-2"> a) With a different key</label>
+                            <label class="block mb-1"><input type="radio" name="q2-2" value="b" class="mr-2"> b) By guessing</label>
+                            <label class="block"><input type="radio" name="q2-2" value="c" class="mr-2"> c) With the <em>same</em> secret key</label>
+                            <p id="q2-2-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">3. Which of these is a common symmetric encryption algorithm?</p>
-                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) RSA</label>
-                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) AES</label>
-                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Diffie-Hellman</label>
-                        <p id="q7-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">3. Which of these is a common symmetric encryption algorithm?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-3" value="a" class="mr-2"> a) RSA</label>
+                            <label class="block mb-1"><input type="radio" name="q2-3" value="b" class="mr-2"> b) AES</label>
+                            <label class="block"><input type="radio" name="q2-3" value="c" class="mr-2"> c) Diffie-Hellman</label>
+                            <p id="q2-3-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">4. What is the biggest challenge with symmetric encryption?</p>
-                        <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) It's too slow</label>
-                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) It's hard to share the secret key safely</label>
-                        <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) It makes messages too short</label>
-                        <p id="q8-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">4. What is the biggest challenge with symmetric encryption?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-4" value="a" class="mr-2"> a) It's too slow</label>
+                            <label class="block mb-1"><input type="radio" name="q2-4" value="b" class="mr-2"> b) It's hard to share the secret key safely</label>
+                            <label class="block"><input type="radio" name="q2-4" value="c" class="mr-2"> c) It makes messages too short</label>
+                            <p id="q2-4-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <button type="button" onclick="checkQuiz(2)" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Check Answers</button>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">5. What is "plaintext" in encryption?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-5" value="a" class="mr-2"> a) The secret key</label>
+                            <label class="block mb-1"><input type="radio" name="q2-5" value="b" class="mr-2"> b) The unreadable message</label>
+                            <label class="block"><input type="radio" name="q2-5" value="c" class="mr-2"> c) The original, readable message</label>
+                            <p id="q2-5-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">6. What is "ciphertext" in encryption?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-6" value="a" class="mr-2"> a) The original message</label>
+                            <label class="block mb-1"><input type="radio" name="q2-6" value="b" class="mr-2"> b) The unreadable, scrambled message</label>
+                            <label class="block"><input type="radio" name="q2-6" value="c" class="mr-2"> c) The key used for encryption</label>
+                            <p id="q2-6-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">7. Which symmetric algorithm is widely used today and considered very secure?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-7" value="a" class="mr-2"> a) RSA</label>
+                            <label class="block mb-1"><input type="radio" name="q2-7" value="b" class="mr-2"> b) AES</label>
+                            <label class="block"><input type="radio" name="q2-7" value="c" class="mr-2"> c) Diffie-Hellman</label>
+                            <p id="q2-7-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">8. Symmetric encryption is generally preferred for encrypting:</p>
+                            <label class="block mb-1"><input type="radio" name="q2-8" value="a" class="mr-2"> a) Very small amounts of data</label>
+                            <label class="block mb-1"><input type="radio" name="q2-8" value="b" class="mr-2"> b) Large amounts of data</label>
+                            <label class="block"><input type="radio" name="q2-8" value="c" class="mr-2"> c) Only digital signatures</label>
+                            <p id="q2-8-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">9. If you use symmetric encryption, how many keys do you need to share with your friend?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-9" value="a" class="mr-2"> a) One</label>
+                            <label class="block mb-1"><input type="radio" name="q2-9" value="b" class="mr-2"> b) Two</label>
+                            <label class="block"><input type="radio" name="q2-9" value="c" class="mr-2"> c) Zero</label>
+                            <p id="q2-9-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">10. What does a VPN primarily use symmetric encryption for?</p>
+                            <label class="block mb-1"><input type="radio" name="q2-10" value="a" class="mr-2"> a) To change your location</label>
+                            <label class="block mb-1"><input type="radio" name="q2-10" value="b" class="mr-2"> b) To secure your internet connection</label>
+                            <label class="block"><input type="radio" name="q2-10" value="c" class="mr-2"> c) To download files faster</label>
+                            <p id="q2-10-feedback" class="quiz-feedback"></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <button type="button" onclick="prevQuestion(2)" class="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition duration-300 ease-in-out shadow-md" id="prevBtn2" disabled>Previous</button>
+                        <span id="questionCounter2" class="text-gray-600 font-semibold">1 of 10</span>
+                        <button type="button" onclick="nextQuestion(2)" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md" id="nextBtn2">Next</button>
+                    </div>
+                    <button type="button" onclick="checkCurrentQuestion(2)" class="mt-4 bg-green-600 text-white px-5 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out shadow-md w-full">Check Answer</button>
                 </form>
             </div>
 
@@ -275,6 +411,9 @@
 
         <div id="lesson3" class="lesson-content p-6 bg-gray-50 rounded-lg shadow-inner">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Class18 Asymmetric Encryption Algorithms</h2>
+
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <span class="text-5xl">🧑‍💻</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🔑</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🔒</span> <span class="text-5xl">➡️</span> <span class="text-5xl">🗝️</span> <span class="text-5xl">➡️</span> <span class="text-5xl">💬</span> </div>
 
             <section class="mb-8">
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
@@ -350,41 +489,96 @@
             </section>
 
             <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
-                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 3: Asymmetric Encryption Algorithms</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-2">Quiz 3: Asymmetric Encryption Algorithms</h3>
+                <p class="text-lg font-medium text-gray-700 mb-4">Do you know?</p>
                 <form id="quiz3-form">
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">1. How many keys are used in asymmetric encryption?</p>
-                        <label class="block mb-1"><input type="radio" name="q1" value="a" class="mr-2"> a) One</label>
-                        <label class="block mb-1"><input type="radio" name="q1" value="b" class="mr-2"> b) Two</label>
-                        <label class="block"><input type="radio" name="q1" value="c" class="mr-2"> c) Three</label>
-                        <p id="q9-feedback" class="quiz-feedback"></p>
-                    </div>
+                    <div id="quiz3-questions-container">
+                        <div class="quiz-slide active">
+                            <p class="font-medium text-gray-700 mb-2">1. How many keys are used in asymmetric encryption?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-1" value="a" class="mr-2"> a) One</label>
+                            <label class="block mb-1"><input type="radio" name="q3-1" value="b" class="mr-2"> b) Two</label>
+                            <label class="block"><input type="radio" name="q3-1" value="c" class="mr-2"> c) Three</label>
+                            <p id="q3-1-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">2. Which key is shared with everyone in asymmetric encryption?</p>
-                        <label class="block mb-1"><input type="radio" name="q2" value="a" class="mr-2"> a) The private key</label>
-                        <label class="block mb-1"><input type="radio" name="q2" value="b" class="mr-2"> b) The secret key</label>
-                        <label class="block"><input type="radio" name="q2" value="c" class="mr-2"> c) The public key</label>
-                        <p id="q10-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">2. Which key is shared with everyone in asymmetric encryption?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-2" value="a" class="mr-2"> a) The private key</label>
+                            <label class="block mb-1"><input type="radio" name="q3-2" value="b" class="mr-2"> b) The secret key</label>
+                            <label class="block"><input type="radio" name="q3-2" value="c" class="mr-2"> c) The public key</label>
+                            <p id="q3-2-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">3. Which of these is a common asymmetric encryption algorithm?</p>
-                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) AES</label>
-                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) RSA</label>
-                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Triple DES</label>
-                        <p id="q11-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">3. Which of these is a common asymmetric encryption algorithm?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-3" value="a" class="mr-2"> a) AES</label>
+                            <label class="block mb-1"><input type="radio" name="q3-3" value="b" class="mr-2"> b) RSA</label>
+                            <label class="block"><input type="radio" name="q3-3" value="c" class="mr-2"> c) Triple DES</label>
+                            <p id="q3-3-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">4. What is a main use of asymmetric encryption algorithms?</p>
-                        <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) Sending very long messages quickly</label>
-                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) Securely exchanging symmetric keys</label>
-                        <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) Making your computer faster</label>
-                        <p id="q12-feedback" class="quiz-feedback"></p>
-                    </div>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">4. What is a main use of asymmetric encryption algorithms?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-4" value="a" class="mr-2"> a) Sending very long messages quickly</label>
+                            <label class="block mb-1"><input type="radio" name="q3-4" value="b" class="mr-2"> b) Securely exchanging symmetric keys</label>
+                            <label class="block"><input type="radio" name="q3-4" value="c" class="mr-2"> c) Making your computer faster</label>
+                            <p id="q3-4-feedback" class="quiz-feedback"></p>
+                        </div>
 
-                    <button type="button" onclick="checkQuiz(3)" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Check Answers</button>
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">5. Which key in asymmetric encryption is kept secret?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-5" value="a" class="mr-2"> a) The public key</label>
+                            <label class="block mb-1"><input type="radio" name="q3-5" value="b" class="mr-2"> b) The private key</label>
+                            <label class="block"><input type="radio" name="q3-5" value="c" class="mr-2"> c) The shared key</label>
+                            <p id="q3-5-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">6. Which key in asymmetric encryption is shared with anyone?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-6" value="a" class="mr-2"> a) The private key</label>
+                            <label class="block mb-1"><input type="radio" name="q3-6" value="b" class="mr-2"> b) The secret key</label>
+                            <label class="block"><input type="radio" name="q3-6" value="c" class="mr-2"> c) The public key</label>
+                            <p id="q3-6-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">7. What is a common asymmetric algorithm used for digital signatures?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-7" value="a" class="mr-2"> a) AES</label>
+                            <label class="block mb-1"><input type="radio" name="q3-7" value="b" class="mr-2"> b) RSA</label>
+                            <label class="block"><input type="radio" name="q3-7" value="c" class="mr-2"> c) 3DES</label>
+                            <p id="q3-7-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">8. Asymmetric encryption is generally preferred for:</p>
+                            <label class="block mb-1"><input type="radio" name="q3-8" value="a" class="mr-2"> a) Encrypting large files quickly</label>
+                            <label class="block mb-1"><input type="radio" name="q3-8" value="b" class="mr-2"> b) Securely exchanging keys</label>
+                            <label class="block"><input type="radio" name="q3-8" value="c" class="mr-2"> c) Making video calls</label>
+                            <p id="q3-8-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">9. What is the purpose of a "digital signature"?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-9" value="a" class="mr-2"> a) To make a document look official</label>
+                            <label class="block mb-1"><input type="radio" name="q3-9" value="b" class="mr-2"> b) To prove who sent a message and that it hasn't been changed</label>
+                            <label class="block"><input type="radio" name="q3-9" value="c" class="mr-2"> c) To encrypt a message for secrecy</label>
+                            <p id="q3-9-feedback" class="quiz-feedback"></p>
+                        </div>
+
+                        <div class="quiz-slide">
+                            <p class="font-medium text-gray-700 mb-2">10. Which algorithm allows two parties to agree on a shared secret key over an insecure channel?</p>
+                            <label class="block mb-1"><input type="radio" name="q3-10" value="a" class="mr-2"> a) AES</label>
+                            <label class="block mb-1"><input type="radio" name="q3-10" value="b" class="mr-2"> b) RSA</label>
+                            <label class="block"><input type="radio" name="q3-10" value="c" class="mr-2"> c) Diffie-Hellman</label>
+                            <p id="q3-10-feedback" class="quiz-feedback"></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <button type="button" onclick="prevQuestion(3)" class="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition duration-300 ease-in-out shadow-md" id="prevBtn3" disabled>Previous</button>
+                        <span id="questionCounter3" class="text-gray-600 font-semibold">1 of 10</span>
+                        <button type="button" onclick="nextQuestion(3)" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md" id="nextBtn3">Next</button>
+                    </div>
+                    <button type="button" onclick="checkCurrentQuestion(3)" class="mt-4 bg-green-600 text-white px-5 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out shadow-md w-full">Check Answer</button>
                 </form>
             </div>
 
@@ -394,11 +588,14 @@
                 <div class="overflow-x-auto">
                     <table class="min-w-full bg-white border border-gray-300 rounded-lg">
                         <thead>
-                            <tr class="bg-blue-100"> <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Feature</th>
+                            <tr class="bg-blue-100">
+                                <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">Feature</th>
                                 <th class="py-3 px-4 border-b text-center text-sm font-semibold text-gray-700">
-                                    Symmetric Encryption Algorithms <br> <span class="text-2xl">🔑</span> </th>
+                                    Symmetric Encryption Algorithms <br> <span class="text-2xl">🔑</span>
+                                </th>
                                 <th class="py-3 px-4 border-b text-center text-sm font-semibold text-gray-700">
-                                    Asymmetric Encryption Algorithms <br> <span class="text-2xl">🔒🔑</span> </th>
+                                    Asymmetric Encryption Algorithms <br> <span class="text-2xl">🔒🔑</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -442,77 +639,137 @@
     <script>
         // JavaScript for lesson navigation and quiz functionality
 
-        // Function to show a specific lesson and hide others
-        function showLesson(lessonId) {
-            // Get all lesson content divs
-            const lessons = document.querySelectorAll('.lesson-content');
-            lessons.forEach(lesson => {
-                lesson.classList.remove('active'); // Hide all lessons
-            });
+        // Object to keep track of the current question index for each quiz
+        const currentQuestionIndex = {
+            lesson1: 0,
+            lesson2: 0,
+            lesson3: 0
+        };
 
-            // Show the selected lesson
-            document.getElementById(lessonId).classList.add('active');
-
-            // Scroll to top of the content area for better UX
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Correct answers for the quizzes
+        // Correct answers for the quizzes (now 10 questions each)
         const correctAnswers = {
             lesson1: {
-                q1: 'b',
-                q2: 'c',
-                q3: 'b',
-                q4: 'b'
+                'q1-1': 'b', 'q1-2': 'c', 'q1-3': 'b', 'q1-4': 'b', 'q1-5': 'b',
+                'q1-6': 'b', 'q1-7': 'b', 'q1-8': 'c', 'q1-9': 'b', 'q1-10': 'b'
             },
             lesson2: {
-                q1: 'b',
-                q2: 'c',
-                q3: 'b',
-                q4: 'b'
+                'q2-1': 'b', 'q2-2': 'c', 'q2-3': 'b', 'q2-4': 'b', 'q2-5': 'c',
+                'q2-6': 'b', 'q2-7': 'b', 'q2-8': 'b', 'q2-9': 'a', 'q2-10': 'b'
             },
             lesson3: {
-                q1: 'b',
-                q2: 'c',
-                q3: 'b',
-                q4: 'b'
+                'q3-1': 'b', 'q3-2': 'c', 'q3-3': 'b', 'q3-4': 'b', 'q3-5': 'b',
+                'q3-6': 'c', 'q3-7': 'b', 'q3-8': 'b', 'q3-9': 'b', 'q3-10': 'c'
             }
         };
 
-        // Function to check quiz answers
-        function checkQuiz(lessonNumber) {
-            const lessonKey = `lesson${lessonNumber}`;
-            const quizForm = document.getElementById(`quiz${lessonNumber}-form`);
-            const answers = correctAnswers[lessonKey];
-            let allCorrect = true;
+        // Function to show a specific lesson and hide others
+        function showLesson(lessonId) {
+            const lessons = document.querySelectorAll('.lesson-content');
+            lessons.forEach(lesson => {
+                lesson.classList.remove('active', 'animate-fade-in');
+            });
 
-            // Loop through each question in the quiz
-            for (let i = 1; i <= Object.keys(answers).length; i++) {
-                const questionName = `q${i}`;
-                const selectedAnswer = quizForm.elements[questionName].value;
-                const feedbackElement = document.getElementById(`q${(lessonNumber - 1) * 4 + i}-feedback`); // Adjusted ID for feedback
+            const activeLesson = document.getElementById(lessonId);
+            activeLesson.classList.add('active');
+            void activeLesson.offsetWidth; // Forces a reflow
+            activeLesson.classList.add('animate-fade-in');
+            
+            // Reset and show the first question for the newly active lesson's quiz
+            const lessonNumber = parseInt(lessonId.replace('lesson', ''));
+            currentQuestionIndex[`lesson${lessonNumber}`] = 0; // Reset to first question
+            showQuestion(lessonNumber, 0); // Show the first question
 
-                feedbackElement.classList.remove('correct', 'incorrect'); // Clear previous feedback
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-                if (selectedAnswer === answers[questionName]) {
-                    feedbackElement.textContent = 'Correct!';
-                    feedbackElement.classList.add('correct');
-                } else {
-                    feedbackElement.textContent = `Incorrect. The correct answer was: ${answers[questionName].toUpperCase()}`;
-                    feedbackElement.classList.add('incorrect');
-                    allCorrect = false;
+        // Function to display a specific question in a quiz
+        function showQuestion(lessonNumber, questionIndex) {
+            const quizContainer = document.getElementById(`quiz${lessonNumber}-questions-container`);
+            const slides = quizContainer.querySelectorAll('.quiz-slide');
+            
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Show the current slide
+            if (slides[questionIndex]) {
+                slides[questionIndex].classList.add('active');
+                // Clear feedback for the newly displayed question
+                const feedbackId = `q${lessonNumber}-${questionIndex + 1}-feedback`;
+                const feedbackElement = document.getElementById(feedbackId);
+                if (feedbackElement) {
+                    feedbackElement.textContent = '';
+                    feedbackElement.classList.remove('correct', 'incorrect');
                 }
             }
 
-            // Provide overall feedback (optional, but good for user)
-            if (allCorrect) {
-                console.log(`Congratulations! You got all answers correct for Lesson ${lessonNumber}!`);
-            } else {
-                console.log(`Keep studying! Some answers were incorrect for Lesson ${lessonNumber}.`);
+            // Update question counter
+            const questionCounter = document.getElementById(`questionCounter${lessonNumber}`);
+            if (questionCounter) {
+                questionCounter.textContent = `${questionIndex + 1} of ${slides.length}`;
+            }
+
+            // Manage navigation button states
+            const prevBtn = document.getElementById(`prevBtn${lessonNumber}`);
+            const nextBtn = document.getElementById(`nextBtn${lessonNumber}`);
+
+            if (prevBtn) {
+                prevBtn.disabled = (questionIndex === 0);
+            }
+            if (nextBtn) {
+                nextBtn.disabled = (questionIndex === slides.length - 1);
             }
         }
 
-        // Show the first lesson by default when the page loads
+        // Function to check the answer of the currently displayed question
+        function checkCurrentQuestion(lessonNumber) {
+            const lessonKey = `lesson${lessonNumber}`;
+            const currentIdx = currentQuestionIndex[lessonKey];
+            const questionName = `q${lessonNumber}-${currentIdx + 1}`;
+            const quizForm = document.getElementById(`quiz${lessonNumber}-form`);
+            const selectedAnswer = quizForm.elements[questionName]?.value;
+            const feedbackElement = document.getElementById(`${questionName}-feedback`);
+            const correctAnswer = correctAnswers[lessonKey][questionName];
+
+            if (feedbackElement) {
+                feedbackElement.classList.remove('correct', 'incorrect'); // Clear previous feedback
+
+                if (selectedAnswer === correctAnswer) {
+                    feedbackElement.textContent = 'Correct!';
+                    feedbackElement.classList.add('correct');
+                } else if (selectedAnswer) { // Only show incorrect if an answer was selected
+                    feedbackElement.textContent = `Incorrect. The correct answer was: ${correctAnswer.toUpperCase()}`;
+                    feedbackElement.classList.add('incorrect');
+                } else {
+                    feedbackElement.textContent = 'Please select an answer.';
+                    feedbackElement.classList.add('incorrect'); // Use incorrect style for "please select"
+                }
+            }
+        }
+
+        // Function to move to the next question
+        function nextQuestion(lessonNumber) {
+            const lessonKey = `lesson${lessonNumber}`;
+            const quizContainer = document.getElementById(`quiz${lessonNumber}-questions-container`);
+            const slides = quizContainer.querySelectorAll('.quiz-slide');
+
+            if (currentQuestionIndex[lessonKey] < slides.length - 1) {
+                currentQuestionIndex[lessonKey]++;
+                showQuestion(lessonNumber, currentQuestionIndex[lessonKey]);
+            }
+        }
+
+        // Function to move to the previous question
+        function prevQuestion(lessonNumber) {
+            const lessonKey = `lesson${lessonNumber}`;
+            if (currentQuestionIndex[lessonKey] > 0) {
+                currentQuestionIndex[lessonKey]--;
+                showQuestion(lessonNumber, currentQuestionIndex[lessonKey]);
+            }
+        }
+
+        // Show the first lesson and its first quiz question by default when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             showLesson('lesson1');
         });
