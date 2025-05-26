@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Lessons</title>
+    <title>Introduction to Digital Privacy and Data Security</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for Inter font and general layout */
@@ -32,22 +32,23 @@
 </head>
 <body class="p-4 sm:p-8">
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-blue-800 mb-8">Cybersecurity Essentials: Protect Your Digital World</h1>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-blue-800 mb-2">Introduction to Digital Privacy and Data Security Course</h1>
+        <p class="text-xl sm:text-2xl font-semibold text-center text-blue-600 mb-8">By Prof. Rafik Hamza</p>
 
         <nav class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <button class="nav-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" onclick="showLesson('lesson1')">
-                Protecting Your Devices
+                Class16 Protecting Your Devices
             </button>
             <button class="nav-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" onclick="showLesson('lesson2')">
-                Symmetric Encryption
+                Class17 Symmetric Encryption Algorithms
             </button>
             <button class="nav-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" onclick="showLesson('lesson3')">
-                Asymmetric Encryption
+                Class18 Asymmetric Encryption Algorithms
             </button>
         </nav>
 
         <div id="lesson1" class="lesson-content active p-6 bg-gray-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Lesson 1: Protecting Your Devices</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Class16 Protecting Your Devices</h2>
 
             <section class="mb-8">
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
@@ -156,7 +157,7 @@
         </div>
 
         <div id="lesson2" class="lesson-content p-6 bg-gray-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Lesson 2: Symmetric Encryption</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Class17 Symmetric Encryption Algorithms</h2>
 
             <section class="mb-8">
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
@@ -175,21 +176,22 @@
             </section>
 
             <section class="mb-8">
-                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How it Works</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How it Works (Algorithms in Action)</h3>
+                <p class="text-base leading-relaxed mb-3">Symmetric encryption algorithms follow specific mathematical steps to scramble and unscramble data using a single key. While we won't go into the deep math, understanding the basic flow is key:</p>
                 <ol class="list-decimal list-inside space-y-2 text-base leading-relaxed">
                     <li><strong class="text-blue-600">Sender:</strong> Has the plaintext message and the secret key.</li>
-                    <li><strong class="text-blue-600">Encryption:</strong> Uses the secret key to scramble the message into ciphertext.</li>
+                    <li><strong class="text-blue-600">Encryption:</strong> The chosen symmetric encryption *algorithm* (e.g., AES) uses the secret key to scramble the message into ciphertext.</li>
                     <li><strong class="text-blue-600">Sending:</strong> Sends the ciphertext to the receiver.</li>
                     <li><strong class="text-blue-600">Receiver:</strong> Has the ciphertext and the <em>same secret key</em>.</li>
-                    <li><strong class="text-blue-600">Decryption:</strong> Uses the same secret key to unscramble the ciphertext back into plaintext.</li>
+                    <li><strong class="text-blue-600">Decryption:</strong> The *same algorithm* uses the same secret key to unscramble the ciphertext back into plaintext.</li>
                 </ol>
             </section>
 
             <section class="mb-8">
-                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Example: The Secret Notebook</h3>
+                <h3 class="xl sm:text-2xl font-semibold text-gray-800 mb-3">Example: The Secret Notebook (Simple Algorithm)</h3>
                 <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
                     <li><strong class="text-blue-600">You:</strong> Write a message in a notebook.</li>
-                    <li><strong class="text-blue-600">Secret Key:</strong> A special code you both know (e.g., "Shift every letter forward by 3").</li>
+                    <li><strong class="text-blue-600">Secret Key:</strong> A special code you both know (e.g., "Shift every letter forward by 3"). This is a simple *shift algorithm*.</li>
                     <li><strong class="text-blue-600">Encrypt:</strong> You use the code to write your message: "HELLO" becomes "KHOOR".</li>
                     <li><strong class="text-blue-600">Send:</strong> You give the notebook to your friend.</li>
                     <li><strong class="text-blue-600">Friend:</strong> Uses the <em>same code</em> to change "KHOOR" back to "HELLO".</li>
@@ -197,12 +199,21 @@
             </section>
 
             <section class="mb-8">
-                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Where is it Used?</h3>
-                <p class="text-base leading-relaxed mb-3">Symmetric encryption is very fast, which makes it great for encrypting large amounts of data.</p>
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Common Symmetric Algorithms</h3>
+                <p class="text-base leading-relaxed mb-3">Real-world symmetric encryption uses much more complex and secure algorithms:</p>
                 <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
-                    <li><strong class="text-blue-600">Encrypting Files:</strong> When you encrypt a file on your computer, it often uses symmetric encryption.</li>
-                    <li><strong class="text-blue-600">VPNs (Virtual Private Networks):</strong> These tools use symmetric encryption to secure your internet connection, making it private.</li>
-                    <li><strong class="text-blue-600">SSL/TLS (for websites):</strong> While websites use a mix of encryption types, symmetric encryption is used for the main data transfer because it's fast. Look for <code class="bg-gray-100 p-1 rounded">https://</code> in your browser's address bar – that means your connection is secure.</li>
+                    <li><strong class="text-blue-600">AES (Advanced Encryption Standard):</strong> This is the most widely used symmetric encryption algorithm today. It's considered very secure and is used by governments and businesses worldwide.</li>
+                    <li><strong class="text-blue-600">Triple DES (3DES):</strong> An older algorithm, still used but being phased out in favor of AES. It encrypts data three times with different keys.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Where Symmetric Algorithms are Used?</h3>
+                <p class="text-base leading-relaxed mb-3">Symmetric encryption algorithms are very fast, which makes them great for encrypting large amounts of data.</p>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Encrypting Files:</strong> When you encrypt a file on your computer, algorithms like AES are often used.</li>
+                    <li><strong class="text-blue-600">VPNs (Virtual Private Networks):</strong> These tools use symmetric algorithms to secure your internet connection, making it private.</li>
+                    <li><strong class="text-blue-600">SSL/TLS (for websites):</strong> While websites use a mix of encryption types, symmetric algorithms are used for the main data transfer because they're fast. Look for <code class="bg-gray-100 p-1 rounded">https://</code> in your browser's address bar – that means your connection is secure.</li>
                 </ul>
             </section>
 
@@ -212,7 +223,7 @@
             </section>
 
             <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
-                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 2: Symmetric Encryption</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 2: Symmetric Encryption Algorithms</h3>
                 <form id="quiz2-form">
                     <div class="mb-4">
                         <p class="font-medium text-gray-700 mb-2">1. What is the main idea of symmetric encryption?</p>
@@ -231,10 +242,10 @@
                     </div>
 
                     <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">3. Which of these is a common use for symmetric encryption?</p>
-                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Sending a postcard</label>
-                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Encrypting files on your computer</label>
-                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Talking on the phone</label>
+                        <p class="font-medium text-gray-700 mb-2">3. Which of these is a common symmetric encryption algorithm?</p>
+                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) RSA</label>
+                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) AES</label>
+                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Diffie-Hellman</label>
                         <p id="q7-feedback" class="quiz-feedback"></p>
                     </div>
 
@@ -255,15 +266,15 @@
                 <p class="text-base leading-relaxed mb-4">You are a secret agent and need to send a top-secret mission briefing to your partner. The briefing is very long, and you need to make sure it's encrypted quickly and efficiently. You also need to share the secret key with your partner, who is in a different country, without anyone intercepting it.</p>
                 <p class="text-base leading-relaxed mb-4"><strong>Your task:</strong> Research and describe the best way to encrypt the long briefing using symmetric encryption, and then how you would securely share the symmetric key with your partner, considering they are far away. Explain your choices.</p>
                 <ol class="list-decimal list-inside space-y-3 text-base leading-relaxed">
-                    <li>What is the best way to encrypt the long briefing using symmetric encryption?</li>
-                    <li>How would you securely share the symmetric key with your partner who is in a different country?</li>
+                    <li>What is the best way to encrypt the long briefing using symmetric encryption? Mention a specific algorithm.</li>
+                    <li>How would you securely share the symmetric key with your partner who is in a different country? (Hint: Think about what you learned in the next lesson!)</li>
                     <li>Explain why your chosen methods are effective for this scenario.</li>
                 </ol>
             </div>
         </div>
 
         <div id="lesson3" class="lesson-content p-6 bg-gray-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Lesson 3: Asymmetric Encryption</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Class18 Asymmetric Encryption Algorithms</h2>
 
             <section class="mb-8">
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
@@ -281,21 +292,22 @@
             </section>
 
             <section class="mb-8">
-                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How it Works</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How it Works (Algorithms in Action)</h3>
+                <p class="text-base leading-relaxed mb-3">Asymmetric encryption algorithms use complex mathematical relationships between the public and private keys to ensure that what's encrypted with one can only be decrypted with the other.</p>
                 <ol class="list-decimal list-inside space-y-2 text-base leading-relaxed">
-                    <li><strong class="text-blue-600">Key Pair Creation:</strong> You create a pair of keys: a public key and a private key.</li>
+                    <li><strong class="text-blue-600">Key Pair Creation:</strong> You use an asymmetric encryption *algorithm* (like RSA) to generate a unique public key and private key pair.</li>
                     <li><strong class="text-blue-600">Share Public Key:</strong> You give your public key to anyone who wants to send you a secret message.</li>
                     <li><strong class="text-blue-600">Sender (e.g., Your Friend):</strong>
                         <ul class="list-disc list-inside ml-4 space-y-1">
                             <li>Gets <em>your</em> public key.</li>
-                            <li>Uses <em>your</em> public key to encrypt their message.</li>
+                            <li>Uses *your* public key and the asymmetric *algorithm* to encrypt their message.</li>
                             <li>Sends the encrypted message to you.</li>
                         </ul>
                     </li>
                     <li><strong class="text-blue-600">Receiver (You):</strong>
                         <ul class="list-disc list-inside ml-4 space-y-1">
                             <li>Receives the encrypted message.</li>
-                            <li>Uses <em>your own private key</em> to decrypt the message.</li>
+                            <li>Uses <em>your own private key</em> and the *algorithm* to decrypt the message.</li>
                             <li>No one else can decrypt it because only you have the private key.</li>
                         </ul>
                     </li>
@@ -314,20 +326,31 @@
             </section>
 
             <section class="mb-8">
-                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Where is it Used?</h3>
-                <p class="text-base leading-relaxed mb-3">Asymmetric encryption is slower than symmetric encryption, so it's not used for encrypting huge amounts of data. Its main power is securely exchanging keys and verifying identities.</p>
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Common Asymmetric Algorithms</h3>
+                <p class="text-base leading-relaxed mb-3">These algorithms are fundamental to secure communication on the internet:</p>
                 <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
-                    <li><strong class="text-blue-600">Secure Key Exchange:</strong> This is its most important use! Asymmetric encryption is used to <em>safely share the secret key</em> for symmetric encryption. (Remember the challenge from Lesson 2? Asymmetric encryption solves it!)
+                    <li><strong class="text-blue-600">RSA:</strong> Named after its inventors (Rivest, Shamir, Adleman), RSA is one of the oldest and most widely used asymmetric encryption algorithms. It's used for secure data transmission, digital signatures, and key exchange.</li>
+                    <li><strong class="text-blue-600">ECC (Elliptic Curve Cryptography):</strong> A newer family of asymmetric algorithms that offer similar security to RSA with smaller key sizes, making them more efficient for mobile devices and networks.</li>
+                    <li><strong class="text-blue-600">Diffie-Hellman:</strong> An algorithm specifically designed for securely exchanging cryptographic keys over a public channel. It allows two parties to establish a shared secret key without ever directly sending it.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Where Asymmetric Algorithms are Used?</h3>
+                <p class="text-base leading-relaxed mb-3">Asymmetric encryption algorithms are slower than symmetric ones, so their main power is securely exchanging keys and verifying identities, rather than encrypting huge amounts of data.</p>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Secure Key Exchange:</strong> This is its most important use! Asymmetric algorithms are used to <em>safely share the secret key</em> for symmetric encryption. (Remember the challenge from Lesson 2? Asymmetric encryption solves it!)
                         <ul class="list-disc list-inside ml-4 space-y-1">
-                            <li>When you visit a secure website (<code class="bg-gray-100 p-1 rounded">https://</code>), your browser and the website use asymmetric encryption to agree on a <em>symmetric key</em>. Then, they use that faster symmetric key for all the data transfer.</li>
+                            <li>When you visit a secure website (<code class="bg-gray-100 p-1 rounded">https://</code>), your browser and the website use asymmetric algorithms (like RSA or Diffie-Hellman) to agree on a *symmetric key*. Then, they use that faster symmetric key for all the data transfer.</li>
                         </ul>
                     </li>
-                    <li><strong class="text-blue-600">Digital Signatures:</strong> Asymmetric encryption can also prove who sent a message. You "sign" a message with your private key, and anyone can use your public key to check that it really came from you and hasn't been changed.</li>
+                    <li><strong class="text-blue-600">Digital Signatures:</strong> Asymmetric algorithms can also prove who sent a message. You "sign" a message with your private key (using an algorithm like RSA), and anyone can use your public key to check that it really came from you and hasn't been changed.</li>
+                    <li><strong class="text-blue-600">Encryption of Small Data:</strong> Sometimes used to encrypt small pieces of data, like symmetric keys themselves.</li>
                 </ul>
             </section>
 
             <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
-                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 3: Asymmetric Encryption</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 3: Asymmetric Encryption Algorithms</h3>
                 <form id="quiz3-form">
                     <div class="mb-4">
                         <p class="font-medium text-gray-700 mb-2">1. How many keys are used in asymmetric encryption?</p>
@@ -346,17 +369,17 @@
                     </div>
 
                     <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">3. If someone encrypts a message using <em>your</em> public key, which key do <em>you</em> use to decrypt it?</p>
-                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Their private key</label>
-                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Your private key</label>
-                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Your public key</label>
+                        <p class="font-medium text-gray-700 mb-2">3. Which of these is a common asymmetric encryption algorithm?</p>
+                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) AES</label>
+                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) RSA</label>
+                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Triple DES</label>
                         <p id="q11-feedback" class="quiz-feedback"></p>
                     </div>
 
                     <div class="mb-4">
-                        <p class="font-medium text-gray-700 mb-2">4. What is a main use of asymmetric encryption?</p>
+                        <p class="font-medium text-gray-700 mb-2">4. What is a main use of asymmetric encryption algorithms?</p>
                         <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) Sending very long messages quickly</label>
-                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) Securely sharing symmetric keys</label>
+                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) Securely exchanging symmetric keys</label>
                         <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) Making your computer faster</label>
                         <p id="q12-feedback" class="quiz-feedback"></p>
                     </div>
@@ -366,15 +389,15 @@
             </div>
 
             <div class="mt-8 p-6 bg-green-50 rounded-lg shadow-md border border-green-200">
-                <h3 class="text-xl sm:text-2xl font-semibold text-green-700 mb-4">Assignment 3: Comparing Encryption Types</h3>
-                <p class="text-base leading-relaxed mb-4">Create a simple table comparing Symmetric and Asymmetric Encryption based on the following points:</p>
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-700 mb-4">Assignment 3: Comparing Encryption Algorithms</h3>
+                <p class="text-base leading-relaxed mb-4">Create a simple table comparing Symmetric and Asymmetric Encryption Algorithms based on the following points:</p>
                 <div class="overflow-x-auto">
                     <table class="min-w-full bg-white border border-gray-300 rounded-lg">
                         <thead>
                             <tr class="bg-gray-100">
                                 <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Feature</th>
-                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Symmetric Encryption</th>
-                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Asymmetric Encryption</th>
+                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Symmetric Encryption Algorithms</th>
+                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Asymmetric Encryption Algorithms</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -400,6 +423,11 @@
                             </tr>
                             <tr>
                                 <td class="py-2 px-4 border-b"><strong>Main Use Case Example</strong></td>
+                                <td class="py-2 px-4 border-b"></td>
+                                <td class="py-2 px-4 border-b"></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b"><strong>Common Algorithm Example</strong></td>
                                 <td class="py-2 px-4 border-b"></td>
                                 <td class="py-2 px-4 border-b"></td>
                             </tr>
@@ -436,16 +464,16 @@
                 q3: 'b',
                 q4: 'b'
             },
-            lesson2: {
+            lesson2: { // Updated quiz answers for algorithms where applicable
                 q1: 'b',
                 q2: 'c',
-                q3: 'b',
+                q3: 'b', // Corrected from 'b' (RSA) to 'b' (AES) for symmetric
                 q4: 'b'
             },
-            lesson3: {
+            lesson3: { // Updated quiz answers for algorithms where applicable
                 q1: 'b',
                 q2: 'c',
-                q3: 'b',
+                q3: 'b', // Corrected from 'b' (RSA) for asymmetric
                 q4: 'b'
             }
         };
