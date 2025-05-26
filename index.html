@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Lessons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and general layout */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #334155; /* Darker text color */
+        }
+        .lesson-content {
+            display: none; /* Hidden by default */
+        }
+        .lesson-content.active {
+            display: block; /* Show when active */
+        }
+        .quiz-feedback {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        .correct {
+            color: #10b981; /* Green for correct */
+        }
+        .incorrect {
+            color: #ef4444; /* Red for incorrect */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-blue-800 mb-8">Cybersecurity Essentials: Protect Your Digital World</h1>
+
+        <nav class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <button class="nav-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" onclick="showLesson('lesson1')">
+                Protecting Your Devices
+            </button>
+            <button class="nav-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" onclick="showLesson('lesson2')">
+                Symmetric Encryption
+            </button>
+            <button class="nav-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out" onclick="showLesson('lesson3')">
+                Asymmetric Encryption
+            </button>
+        </nav>
+
+        <div id="lesson1" class="lesson-content active p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Lesson 1: Protecting Your Devices</h2>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
+                <p class="text-base leading-relaxed">Think of your devices (phones, computers, tablets) like your home. You lock your doors to keep your home safe. Similarly, you need to protect your devices from bad things online.</p>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Why Protect Your Devices?</h3>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Keep Your Information Safe:</strong> Your devices hold personal photos, messages, and bank details. We want to keep this private.</li>
+                    <li><strong class="text-blue-600">Stop Bad Guys:</strong> Cybercriminals try to steal information or harm your devices. Protection helps stop them.</li>
+                    <li><strong class="text-blue-600">Keep Devices Working:</strong> Protection helps your devices run smoothly and not get corrupted.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How to Protect Your Devices</h3>
+
+                <div class="mb-6 p-4 bg-white rounded-md shadow-sm border border-gray-200">
+                    <h4 class="text-lg font-medium text-blue-600 mb-2">1. Strong Passwords</h4>
+                    <p class="text-base leading-relaxed mb-1"><strong>What:</strong> A secret word or phrase to unlock your device or accounts.</p>
+                    <p class="text-base leading-relaxed mb-1"><strong>How to make it strong:</strong> Use a mix of big letters, small letters, numbers, and symbols. Make it long, at least 12 characters.</p>
+                    <p class="text-base leading-relaxed mb-2"><strong>Example:</strong> Instead of <code class="bg-gray-100 p-1 rounded">password123</code>, use <code class="bg-gray-100 p-1 rounded">MyD3vic3!sS@f3</code>.</p>
+                    <p class="text-base leading-relaxed"><strong>Keep them secret:</strong> Do not share your passwords.</p>
+                </div>
+
+                <div class="mb-6 p-4 bg-white rounded-md shadow-sm border border-gray-200">
+                    <h4 class="text-lg font-medium text-blue-600 mb-2">2. Antivirus Software</h4>
+                    <p class="text-base leading-relaxed mb-1"><strong>What:</strong> A program that finds and removes harmful software (viruses, malware) from your device.</p>
+                    <p class="text-base leading-relaxed mb-1"><strong>How it helps:</strong> It acts like a guard, always checking for threats.</p>
+                    <p class="text-base leading-relaxed"><strong>Example:</strong> Popular antivirus programs are Norton, McAfee, Avast.</p>
+                </div>
+
+                <div class="mb-6 p-4 bg-white rounded-md shadow-sm border border-gray-200">
+                    <h4 class="text-lg font-medium text-blue-600 mb-2">3. Software Updates</h4>
+                    <p class="text-base leading-relaxed mb-1"><strong>What:</strong> New versions of your device's operating system (like Windows, macOS, Android, iOS) and apps.</p>
+                    <p class="text-base leading-relaxed mb-1"><strong>How it helps:</strong> Updates fix security holes that bad guys can use.</p>
+                    <p class="text-base leading-relaxed"><strong>Do it often:</strong> Always install updates when they are available.</p>
+                </div>
+
+                <div class="mb-6 p-4 bg-white rounded-md shadow-sm border border-gray-200">
+                    <h4 class="text-lg font-medium text-blue-600 mb-2">4. Firewall</h4>
+                    <p class="text-base leading-relaxed mb-1"><strong>What:</strong> A barrier that controls what information goes in and out of your device over the internet.</p>
+                    <p class="text-base leading-relaxed mb-1"><strong>How it helps:</strong> It blocks unwanted connections. Most devices have one built-in.</p>
+                </div>
+
+                <div class="p-4 bg-white rounded-md shadow-sm border border-gray-200">
+                    <h4 class="text-lg font-medium text-blue-600 mb-2">5. Be Careful Online</h4>
+                    <ul class="list-disc list-inside space-y-1 text-base leading-relaxed">
+                        <li><strong class="text-blue-600">Links and Emails:</strong> Do not click on links or open attachments from people you do not know. They might be trying to trick you (this is called "phishing").</li>
+                        <li><strong class="text-blue-600">Downloads:</strong> Only download software from trusted websites.</li>
+                        <li><strong class="text-blue-600">Public Wi-Fi:</strong> Be careful when using free Wi-Fi in public places. Do not do sensitive things like online banking on public Wi-Fi without a VPN.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 1: Protecting Your Devices</h3>
+                <form id="quiz1-form">
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">1. What is one reason to protect your devices?</p>
+                        <label class="block mb-1"><input type="radio" name="q1" value="a" class="mr-2"> a) To make them faster</label>
+                        <label class="block mb-1"><input type="radio" name="q1" value="b" class="mr-2"> b) To keep your information safe</label>
+                        <label class="block"><input type="radio" name="q1" value="c" class="mr-2"> c) To play more games</label>
+                        <p id="q1-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">2. Which of these is a strong password?</p>
+                        <label class="block mb-1"><input type="radio" name="q2" value="a" class="mr-2"> a) <code class="bg-gray-100 p-1 rounded">123456</code></label>
+                        <label class="block mb-1"><input type="radio" name="q2" value="b" class="mr-2"> b) <code class="bg-gray-100 p-1 rounded">password</code></label>
+                        <label class="block"><input type="radio" name="q2" value="c" class="mr-2"> c) <code class="bg-gray-100 p-1 rounded">L0ck_mY_D3v!c3</code></label>
+                        <p id="q2-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">3. What does antivirus software do?</p>
+                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Makes your screen brighter</label>
+                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Finds and removes harmful software</label>
+                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Helps you type faster</label>
+                        <p id="q3-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">4. Why are software updates important for security?</p>
+                        <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) They add new colors to your screen</label>
+                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) They fix security holes</label>
+                        <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) They make your device heavier</label>
+                        <p id="q4-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <button type="button" onclick="checkQuiz(1)" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Check Answers</button>
+                </form>
+            </div>
+
+            <div class="mt-8 p-6 bg-green-50 rounded-lg shadow-md border border-green-200">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-700 mb-4">Assignment 1: The Phishing Email Predicament</h3>
+                <p class="text-base leading-relaxed mb-4">You receive an email that looks like it's from your bank, asking you to click a link to "verify your account immediately" because of unusual activity. The email address looks slightly off, and there are a few typos.</p>
+                <p class="text-base leading-relaxed mb-4"><strong>Your task:</strong> Research what this type of email is called and what steps you should take to protect yourself and your device in this situation. Explain why each step is important.</p>
+                <ol class="list-decimal list-inside space-y-3 text-base leading-relaxed">
+                    <li>What is this type of email called?</li>
+                    <li>What are 3-4 immediate steps you should take?</li>
+                    <li>Explain why each step is important for your device's security.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="lesson2" class="lesson-content p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Lesson 2: Symmetric Encryption</h2>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
+                <p class="text-base leading-relaxed">Imagine you want to send a secret message to a friend. How can you make sure only your friend can read it? Encryption is like putting your message in a secret code.</p>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">What is Encryption?</h3>
+                <p class="text-base leading-relaxed">Encryption changes readable information (called "plaintext") into unreadable gibberish (called "ciphertext"). Only someone with the right "key" can change it back to readable information.</p>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Symmetric Encryption: One Key for Everything</h3>
+                <p class="text-base leading-relaxed mb-3"><strong>Idea:</strong> Symmetric encryption uses <em>one secret key</em> for both locking (encrypting) and unlocking (decrypting) the message.</p>
+                <p class="text-base leading-relaxed"><strong>Think of it like this:</strong> Imagine a strong box with only one lock. You use the same key to lock the box and to unlock it.</p>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How it Works</h3>
+                <ol class="list-decimal list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Sender:</strong> Has the plaintext message and the secret key.</li>
+                    <li><strong class="text-blue-600">Encryption:</strong> Uses the secret key to scramble the message into ciphertext.</li>
+                    <li><strong class="text-blue-600">Sending:</strong> Sends the ciphertext to the receiver.</li>
+                    <li><strong class="text-blue-600">Receiver:</strong> Has the ciphertext and the <em>same secret key</em>.</li>
+                    <li><strong class="text-blue-600">Decryption:</strong> Uses the same secret key to unscramble the ciphertext back into plaintext.</li>
+                </ol>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Example: The Secret Notebook</h3>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">You:</strong> Write a message in a notebook.</li>
+                    <li><strong class="text-blue-600">Secret Key:</strong> A special code you both know (e.g., "Shift every letter forward by 3").</li>
+                    <li><strong class="text-blue-600">Encrypt:</strong> You use the code to write your message: "HELLO" becomes "KHOOR".</li>
+                    <li><strong class="text-blue-600">Send:</strong> You give the notebook to your friend.</li>
+                    <li><strong class="text-blue-600">Friend:</strong> Uses the <em>same code</em> to change "KHOOR" back to "HELLO".</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Where is it Used?</h3>
+                <p class="text-base leading-relaxed mb-3">Symmetric encryption is very fast, which makes it great for encrypting large amounts of data.</p>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Encrypting Files:</strong> When you encrypt a file on your computer, it often uses symmetric encryption.</li>
+                    <li><strong class="text-blue-600">VPNs (Virtual Private Networks):</strong> These tools use symmetric encryption to secure your internet connection, making it private.</li>
+                    <li><strong class="text-blue-600">SSL/TLS (for websites):</strong> While websites use a mix of encryption types, symmetric encryption is used for the main data transfer because it's fast. Look for <code class="bg-gray-100 p-1 rounded">https://</code> in your browser's address bar – that means your connection is secure.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Challenges with Symmetric Encryption</h3>
+                <p class="text-base leading-relaxed">The biggest challenge is sharing the secret key. How do you get the key to your friend safely without anyone else seeing it? If a bad guy gets the key, they can read all your secret messages.</p>
+            </section>
+
+            <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 2: Symmetric Encryption</h3>
+                <form id="quiz2-form">
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">1. What is the main idea of symmetric encryption?</p>
+                        <label class="block mb-1"><input type="radio" name="q1" value="a" class="mr-2"> a) Using two different keys</label>
+                        <label class="block mb-1"><input type="radio" name="q1" value="b" class="mr-2"> b) Using one secret key for both locking and unlocking</label>
+                        <label class="block"><input type="radio" name="q1" value="c" class="mr-2"> c) Sending messages in plain text</label>
+                        <p id="q5-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">2. If you encrypt "CAT" with a symmetric key and it becomes "FDU", how does your friend decrypt it?</p>
+                        <label class="block mb-1"><input type="radio" name="q2" value="a" class="mr-2"> a) With a different key</label>
+                        <label class="block mb-1"><input type="radio" name="q2" value="b" class="mr-2"> b) By guessing</label>
+                        <label class="block"><input type="radio" name="q2" value="c" class="mr-2"> c) With the <em>same</em> secret key</label>
+                        <p id="q6-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">3. Which of these is a common use for symmetric encryption?</p>
+                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Sending a postcard</label>
+                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Encrypting files on your computer</label>
+                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Talking on the phone</label>
+                        <p id="q7-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">4. What is the biggest challenge with symmetric encryption?</p>
+                        <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) It's too slow</label>
+                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) It's hard to share the secret key safely</label>
+                        <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) It makes messages too short</label>
+                        <p id="q8-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <button type="button" onclick="checkQuiz(2)" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Check Answers</button>
+                </form>
+            </div>
+
+            <div class="mt-8 p-6 bg-green-50 rounded-lg shadow-md border border-green-200">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-700 mb-4">Assignment 2: The Secret Mission Briefing</h3>
+                <p class="text-base leading-relaxed mb-4">You are a secret agent and need to send a top-secret mission briefing to your partner. The briefing is very long, and you need to make sure it's encrypted quickly and efficiently. You also need to share the secret key with your partner, who is in a different country, without anyone intercepting it.</p>
+                <p class="text-base leading-relaxed mb-4"><strong>Your task:</strong> Research and describe the best way to encrypt the long briefing using symmetric encryption, and then how you would securely share the symmetric key with your partner, considering they are far away. Explain your choices.</p>
+                <ol class="list-decimal list-inside space-y-3 text-base leading-relaxed">
+                    <li>What is the best way to encrypt the long briefing using symmetric encryption?</li>
+                    <li>How would you securely share the symmetric key with your partner who is in a different country?</li>
+                    <li>Explain why your chosen methods are effective for this scenario.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="lesson3" class="lesson-content p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-6">Lesson 3: Asymmetric Encryption</h2>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Introduction</h3>
+                <p class="text-base leading-relaxed">Symmetric encryption is great, but sharing that single secret key is tricky. What if we could have a way to encrypt messages without ever having to share a secret key directly? That's where asymmetric encryption comes in!</p>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Asymmetric Encryption: Two Keys!</h3>
+                <p class="text-base leading-relaxed mb-3"><strong>Idea:</strong> Asymmetric encryption uses <em>two different keys</em> that are mathematically linked:</p>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed mb-3">
+                    <li><strong class="text-blue-600">A Public Key:</strong> This key can be shared with anyone. It's used to <em>encrypt</em> messages.</li>
+                    <li><strong class="text-blue-600">A Private Key:</strong> This key must be kept secret and never shared. It's used to <em>decrypt</em> messages that were encrypted with its matching public key.</li>
+                </ul>
+                <p class="text-base leading-relaxed"><strong>Think of it like this:</strong> Imagine a mailbox with a slot for anyone to drop letters in (that's the public key). But only the owner of the mailbox has the special key to open the mailbox and read the letters (that's the private key).</p>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">How it Works</h3>
+                <ol class="list-decimal list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Key Pair Creation:</strong> You create a pair of keys: a public key and a private key.</li>
+                    <li><strong class="text-blue-600">Share Public Key:</strong> You give your public key to anyone who wants to send you a secret message.</li>
+                    <li><strong class="text-blue-600">Sender (e.g., Your Friend):</strong>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>Gets <em>your</em> public key.</li>
+                            <li>Uses <em>your</em> public key to encrypt their message.</li>
+                            <li>Sends the encrypted message to you.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-blue-600">Receiver (You):</strong>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>Receives the encrypted message.</li>
+                            <li>Uses <em>your own private key</em> to decrypt the message.</li>
+                            <li>No one else can decrypt it because only you have the private key.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Example: The Digital Mailbox</h3>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">You:</strong> Have a public key (like a mailbox slot) and a private key (like the key to open the mailbox).</li>
+                    <li><strong class="text-blue-600">You tell everyone:</strong> "Here's my public key! Use it to send me secret messages!"</li>
+                    <li><strong class="text-blue-600">Your Friend:</strong> Wants to send you a secret message. They take <em>your</em> public key and use it to lock their message.</li>
+                    <li><strong class="text-blue-600">Send:</strong> The locked message travels to you.</li>
+                    <li><strong class="text-blue-600">You:</strong> Use <em>your private key</em> to unlock and read the message. Even if someone else grabs the locked message, they can't open it without <em>your</em> private key.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Where is it Used?</h3>
+                <p class="text-base leading-relaxed mb-3">Asymmetric encryption is slower than symmetric encryption, so it's not used for encrypting huge amounts of data. Its main power is securely exchanging keys and verifying identities.</p>
+                <ul class="list-disc list-inside space-y-2 text-base leading-relaxed">
+                    <li><strong class="text-blue-600">Secure Key Exchange:</strong> This is its most important use! Asymmetric encryption is used to <em>safely share the secret key</em> for symmetric encryption. (Remember the challenge from Lesson 2? Asymmetric encryption solves it!)
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>When you visit a secure website (<code class="bg-gray-100 p-1 rounded">https://</code>), your browser and the website use asymmetric encryption to agree on a <em>symmetric key</em>. Then, they use that faster symmetric key for all the data transfer.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-blue-600">Digital Signatures:</strong> Asymmetric encryption can also prove who sent a message. You "sign" a message with your private key, and anyone can use your public key to check that it really came from you and hasn't been changed.</li>
+                </ul>
+            </section>
+
+            <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
+                <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">Quiz 3: Asymmetric Encryption</h3>
+                <form id="quiz3-form">
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">1. How many keys are used in asymmetric encryption?</p>
+                        <label class="block mb-1"><input type="radio" name="q1" value="a" class="mr-2"> a) One</label>
+                        <label class="block mb-1"><input type="radio" name="q1" value="b" class="mr-2"> b) Two</label>
+                        <label class="block"><input type="radio" name="q1" value="c" class="mr-2"> c) Three</label>
+                        <p id="q9-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">2. Which key is shared with everyone in asymmetric encryption?</p>
+                        <label class="block mb-1"><input type="radio" name="q2" value="a" class="mr-2"> a) The private key</label>
+                        <label class="block mb-1"><input type="radio" name="q2" value="b" class="mr-2"> b) The secret key</label>
+                        <label class="block"><input type="radio" name="q2" value="c" class="mr-2"> c) The public key</label>
+                        <p id="q10-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">3. If someone encrypts a message using <em>your</em> public key, which key do <em>you</em> use to decrypt it?</p>
+                        <label class="block mb-1"><input type="radio" name="q3" value="a" class="mr-2"> a) Their private key</label>
+                        <label class="block mb-1"><input type="radio" name="q3" value="b" class="mr-2"> b) Your private key</label>
+                        <label class="block"><input type="radio" name="q3" value="c" class="mr-2"> c) Your public key</label>
+                        <p id="q11-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="font-medium text-gray-700 mb-2">4. What is a main use of asymmetric encryption?</p>
+                        <label class="block mb-1"><input type="radio" name="q4" value="a" class="mr-2"> a) Sending very long messages quickly</label>
+                        <label class="block mb-1"><input type="radio" name="q4" value="b" class="mr-2"> b) Securely sharing symmetric keys</label>
+                        <label class="block"><input type="radio" name="q4" value="c" class="mr-2"> c) Making your computer faster</label>
+                        <p id="q12-feedback" class="quiz-feedback"></p>
+                    </div>
+
+                    <button type="button" onclick="checkQuiz(3)" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md">Check Answers</button>
+                </form>
+            </div>
+
+            <div class="mt-8 p-6 bg-green-50 rounded-lg shadow-md border border-green-200">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-700 mb-4">Assignment 3: Comparing Encryption Types</h3>
+                <p class="text-base leading-relaxed mb-4">Create a simple table comparing Symmetric and Asymmetric Encryption based on the following points:</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Feature</th>
+                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Symmetric Encryption</th>
+                                <th class="py-2 px-4 border-b text-left text-sm font-semibold text-gray-700">Asymmetric Encryption</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b"><strong>Number of Keys</strong></td>
+                                <td class="py-2 px-4 border-b"></td>
+                                <td class="py-2 px-4 border-b"></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b"><strong>Key Type(s)</strong></td>
+                                <td class="py-2 px-4 border-b"></td>
+                                <td class="py-2 px-4 border-b"></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b"><strong>Key Sharing Challenge?</strong></td>
+                                <td class="py-2 px-4 border-b"></td>
+                                <td class="py-2 px-4 border-b"></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b"><strong>Speed (Fast/Slow)</strong></td>
+                                <td class="py-2 px-4 border-b"></td>
+                                <td class="py-2 px-4 border-b"></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b"><strong>Main Use Case Example</strong></td>
+                                <td class="py-2 px-4 border-b"></td>
+                                <td class="py-2 px-4 border-b"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for lesson navigation and quiz functionality
+
+        // Function to show a specific lesson and hide others
+        function showLesson(lessonId) {
+            // Get all lesson content divs
+            const lessons = document.querySelectorAll('.lesson-content');
+            lessons.forEach(lesson => {
+                lesson.classList.remove('active'); // Hide all lessons
+            });
+
+            // Show the selected lesson
+            document.getElementById(lessonId).classList.add('active');
+
+            // Scroll to top of the content area for better UX
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Correct answers for the quizzes
+        const correctAnswers = {
+            lesson1: {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b',
+                q4: 'b'
+            },
+            lesson2: {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b',
+                q4: 'b'
+            },
+            lesson3: {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b',
+                q4: 'b'
+            }
+        };
+
+        // Function to check quiz answers
+        function checkQuiz(lessonNumber) {
+            const lessonKey = `lesson${lessonNumber}`;
+            const quizForm = document.getElementById(`quiz${lessonNumber}-form`);
+            const answers = correctAnswers[lessonKey];
+            let allCorrect = true;
+
+            // Loop through each question in the quiz
+            for (let i = 1; i <= Object.keys(answers).length; i++) {
+                const questionName = `q${i}`;
+                const selectedAnswer = quizForm.elements[questionName].value;
+                const feedbackElement = document.getElementById(`q${(lessonNumber - 1) * 4 + i}-feedback`); // Adjusted ID for feedback
+
+                feedbackElement.classList.remove('correct', 'incorrect'); // Clear previous feedback
+
+                if (selectedAnswer === answers[questionName]) {
+                    feedbackElement.textContent = 'Correct!';
+                    feedbackElement.classList.add('correct');
+                } else {
+                    feedbackElement.textContent = `Incorrect. The correct answer was: ${answers[questionName].toUpperCase()}`;
+                    feedbackElement.classList.add('incorrect');
+                    allCorrect = false;
+                }
+            }
+
+            // Provide overall feedback (optional, but good for user)
+            if (allCorrect) {
+                // You could add a celebratory message or animation here
+                console.log(`Congratulations! You got all answers correct for Lesson ${lessonNumber}!`);
+            } else {
+                console.log(`Keep studying! Some answers were incorrect for Lesson ${lessonNumber}.`);
+            }
+        }
+
+        // Show the first lesson by default when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            showLesson('lesson1');
+        });
+    </script>
+</body>
+</html>
